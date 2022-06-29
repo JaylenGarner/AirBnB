@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+https://share.getcloudapp.com/z8um1r0A
 
 ## API Documentation
 
@@ -105,7 +105,7 @@ information.
       "id": 1,
       "firstName": "John",
       "lastName": "Smith",
-      "email": "john.smith@gmail.com",
+      "email": "john.smith@gmail.com"s
       "token": ""
     }
     ```
