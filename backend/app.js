@@ -40,6 +40,12 @@ const routes = require('./routes');
 app.use(routes); // Connect all the routes
 const { ValidationError } = require('sequelize');
 
+app.get("/hello", async (req, res) => {
+  res.json({
+    "msg": "I'm live"
+  })
+})
+
 app.use((_req, _res, next) => {
   const err = new Error("The requested resource couldn't be found.");
   err.title = "Resource Not Found";
