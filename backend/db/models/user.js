@@ -9,7 +9,17 @@ module.exports = (sequelize, DataTypes) => {
       return { id, username, email };
     }
     static associate(models) {
-      // define association here
+      User.hasMany(models.Spot, {
+        foreignKey: 'ownerId'
+      });
+
+      User.hasMany(models.Review, {
+        foreignKey: 'userId'
+      });
+
+      User.hasMany(models.Booking, {
+        foreignKey: 'userId'
+      });
     }
     validatePassword(password) {
       return bcrypt.compareSync(password, this.hashedPassword.toString());
@@ -24,8 +34,7 @@ module.exports = (sequelize, DataTypes) => {
           [Op.or]: {
             username: credential,
             email: credential
-          }
-        }
+          } }
       });
       if (user && user.validatePassword(password)) {
         return await User.scope('currentUser').findByPk(user.id);
